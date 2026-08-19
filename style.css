@@ -1,57 +1,21 @@
-/* Estilos do Quiz */
-.quiz-box {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 2.5rem;
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
+/* Efeito de iluminação e elevação nos cards de temporadas */
+.season-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.3s ease, 
+                box-shadow 0.4s ease;
 }
 
-#quiz-question {
-    font-family: var(--font-heading);
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-}
-
-.quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.quiz-option-btn {
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    padding: 0.9rem 1.2rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: var(--font-body);
-}
-
-.quiz-option-btn:hover {
+.season-card:hover {
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--accent-red);
-    background-color: var(--bg-card-hover);
-    transform: translateX(4px);
+    /* Sombra dupla para criar efeito de névoa/aura vermelha */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 
+                0 0 15px rgba(204, 0, 0, 0.3);
 }
 
-.hidden {
-    display: none !important;
-}
-
-.quiz-result h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--accent-gold);
-    margin-bottom: 1rem;
-}
-
-.quiz-result p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
+/* Brilho dourado especial para o card do Castelo Infinito */
+.season-card.movie-trilogy:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 
+                0 0 20px rgba(212, 175, 55, 0.4);
 }
