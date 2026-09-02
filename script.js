@@ -1,7 +1,5 @@
-// Aguarda o carregamento do DOM antes de executar
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Dados das perguntas e opções associadas a cada tipo de respiração
     const questions = [
         {
             question: "Qual é a sua principal virtude em uma batalha ou desafio?",
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Detalhes dos resultados
     const results = {
         agua: {
             title: "Respiração da Água 🌊",
@@ -52,11 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Variáveis de controle de estado
     let currentQuestionIndex = 0;
     const scores = { agua: 0, trovao: 0, chamas: 0, fera: 0 };
 
-    // Elementos do DOM
     const questionEl = document.getElementById('quiz-question');
     const optionsEl = document.getElementById('quiz-options');
     const quizContentEl = document.getElementById('quiz-content');
@@ -65,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDescEl = document.getElementById('result-description');
     const restartBtn = document.getElementById('restart-btn');
 
-    // Inicializa o quiz se os elementos existirem na página
     if (questionEl && optionsEl) {
         showQuestion();
 
@@ -74,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Exibe a pergunta atual
     function showQuestion() {
         const currentQuestion = questions[currentQuestionIndex];
         questionEl.textContent = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
@@ -89,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Processa a escolha da resposta
     function selectOption(type) {
         scores[type]++;
         currentQuestionIndex++;
@@ -101,12 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Calcula e exibe o resultado final
     function showResult() {
         let winningType = 'agua';
         let highestScore = -1;
 
-        // Determina qual tipo teve mais pontos
         for (const type in scores) {
             if (scores[type] > highestScore) {
                 highestScore = scores[type];
@@ -122,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
         quizResultEl.classList.remove('hidden');
     }
 
-    // Reinicia o quiz
     function restartQuiz() {
         currentQuestionIndex = 0;
         for (const type in scores) {
